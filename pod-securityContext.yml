@@ -4,8 +4,8 @@ metadata:
   name: security-context-pod
 spec:
   securityContext:
-    runAsUser: 5
-    fsGroup: 255
+    runAsUser: 45
+    fsGroup: 231
   volumes:
     - name: simple-directory
       emptyDir: {}
