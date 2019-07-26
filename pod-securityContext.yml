@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: security-context-pod
+spec:
+  securityContext:
+    runAsUser: 5
+    fsGroup: 255
+  volumes:
+    - name: simple-directory
+      emptyDir: {}
+  containers:
+    - name: example-container
+      image: alpine
+      command: ['/bin/sh']
+      args: ['-c', 'while true, do date >> /etc/directory/file.txt; sleep 5; done']
+      volumeMounts:
+        - name: simple-directory
+          mountPath: /etc/directory
