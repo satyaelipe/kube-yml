@@ -11,7 +11,7 @@ spec:
         failureThreshold: 1
         httpGet:
           path: /
-          port: 3000
+          port: 8000
       livenessProbe:
         initialDelaySeconds: 60
         periodSeconds: 4
