@@ -19,7 +19,7 @@ spec:
           command: ['ls', 'index.html']
       env:
         - name: DELAY_START
-        value: '45'
+          value: '45'
       command: ['/bin/sh']
       args: ['-c', "echo 'Sleeping ...';  sleep $(DELAY_START); echo 'Starting server...'; python  -m SimpleHTTPServer"]
       
