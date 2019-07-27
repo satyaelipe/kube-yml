@@ -4,7 +4,6 @@ metadata:
   name: nginx-deployment
 spec:
   replicas: 3
-  strategy: Recreate
   selector:
     matchLabels:
       app: nginx
