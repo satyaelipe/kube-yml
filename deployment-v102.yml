@@ -13,7 +13,7 @@ spec:
       labels:
         app: hostname
         appVersion: v102
-    containers:
+      containers:
       - name: nginx-hostname
         image: kubegoldenguide/nginx-hostname:1.0.2
         ports:
