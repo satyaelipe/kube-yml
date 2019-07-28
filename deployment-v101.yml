@@ -14,7 +14,7 @@ spec:
         app: hostname
         appVersion: v101
       containers:
-       - name: nginx-hostname
-         image: kubegoldenguide/nginx-hostname:1.0.1
-         ports:
-          - containerPort: 80
+        - name: nginx-hostname
+          image: kubegoldenguide/nginx-hostname:1.0.1
+          ports:
+            - containerPort: 80
