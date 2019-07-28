@@ -1,4 +1,4 @@
-apiversion: extensions/v1beta1
+apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
   name: hostname-102-deployment
@@ -14,7 +14,7 @@ spec:
         app: hostname
         appVersion: v102
       containers:
-      - name: nginx-hostname
-        image: kubegoldenguide/nginx-hostname:1.0.2
-        ports:
-          - containerPort: 80
+        - name: nginx-hostname
+          image: kubegoldenguide/nginx-hostname:1.0.2
+          ports:
+            - containerPort: 80
