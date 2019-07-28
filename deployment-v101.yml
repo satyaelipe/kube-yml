@@ -9,9 +9,10 @@ spec:
       app: hostname
       appVersion: v101
   template:
-    labels:
-      app: hostname
-      appVersion: v101
+    metadata:
+      labels:
+        app: hostname
+        appVersion: v101
     containers:
       - name: nginx-hostname
         image: kubegoldenguide/nginx-hostname:1.0.1
