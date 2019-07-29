@@ -5,7 +5,7 @@ spec:
   volumes:
     PersistentVolumeClaim:
       claimName: 
-        my-small-pvc
+        - my-small-pvc
   containers:
     - name: my-pvc-container
       volumeMounts:
