@@ -3,7 +3,7 @@ kind: Pod
 metadata: my-pvc-user-pod
 spec:
   volumes:
-    -name: PersistentVolumeClaim:
+    - name: PersistentVolumeClaim
       claimName: my-small-pvc
   containers:
     - name: my-pvc-container
