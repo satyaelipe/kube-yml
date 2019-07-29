@@ -1,11 +1,11 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: pod-one
+  name: pod-two
   namespace: red-team
 spec:
   containers:
-    - name: nginx-pod-one
+    - name: nginx-pod-two
       image: nginx-1.7.9
       resources:
         requests:
