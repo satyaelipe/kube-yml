@@ -3,8 +3,9 @@ kind: Pod
 metadata: my-pvc-user-pod
 spec:
   volumes:
-    - name: PersistentVolumeClaim
-      claimName: my-small-pvc
+    - name: a-persistent-volume
+      persistentVolumeClaim:
+        claimName: my-small-pvc
   containers:
     - name: my-pvc-container
       volumeMounts:
