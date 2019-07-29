@@ -2,6 +2,7 @@ apiVersion:
 kind: ResourceQuota
 metadata:
   name: red-team-resource-quota
+  namespace: red-team
 spec:
   hard:
     pods: 5
