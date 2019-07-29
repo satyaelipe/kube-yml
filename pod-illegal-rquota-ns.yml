@@ -2,7 +2,7 @@ apiVersion: v1
 kind: Pod
 metadata:
   name: pod-illegal
-  namespace: red-tape
+  namespace: red-team
 spec:
   containers:
     - name: nginx-illegal
