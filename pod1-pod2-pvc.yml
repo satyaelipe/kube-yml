@@ -1,20 +1,20 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: my-pvc-user-pod
+  name: my-pvc-user-pod1
 spec:
   volumes:
     - name: a-persistent-volume
       persistentVolumeClaim:
         claimName: my-small-pvc
   containers:
-    - name: my-pvc-container
+    - name: my-pvc-container1
       volumeMounts:
         - name: a-persistent-volume
           mountPath: /var/log
       image: alpine
       command: ['/bin/sh']
-      args: ['-c', 'while true; do date >> /var/log/date.txt; sleep 5; done']
+      args: ['-c', 'while true; do date >> /var/log/c1.txt; sleep 5; done']
 
 ---
 
@@ -28,10 +28,10 @@ spec:
         persistentVolumeClaim:
           claimName: my-small-pvc
     containers:
-      - name: my-pvc-container
+      - name: my-pvc-container1
         volumeMounts:
           - name: a-persistent-volume
             mountPath: /var/log
         image: alpine
         command: ['/bin/sh']
-        args: ['-c', 'while true; do date >> /var/log/date.txt; sleep 5; done']
+        args: ['-c', 'while true; do date >> /var/log/c2.txt; sleep 5; done']
