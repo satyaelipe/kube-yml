@@ -1,10 +1,10 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: my-vpc
+  name: my-small-pvc
 spec:
   resources:
     requests:
       capacity: 64M
-    accessModes:
+  accessModes:
       - ReadWriteOnce
