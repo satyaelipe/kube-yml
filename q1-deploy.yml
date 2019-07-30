@@ -1,11 +1,10 @@
  apiVersion: v1
- kind: NameSpace
+ kind: Namespace
  metadata:
      name: question-four
  spec:
      {}
-
-
+     
  ---
  apiVersion: extensions/v1beta1
  kind: Deployment
