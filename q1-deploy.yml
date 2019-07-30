@@ -2,6 +2,8 @@
  kind: NameSpace
  metadata:
      name: question-four
+ spec:
+     {}
 
 
  ---
