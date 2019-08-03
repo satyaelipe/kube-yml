@@ -2,8 +2,6 @@
  kind: Namespace
  metadata:
      name: question-four
- spec:
-     {}
      
  ---
  apiVersion: extensions/v1beta1
