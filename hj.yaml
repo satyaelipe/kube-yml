@@ -1,0 +1,80 @@
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  namespace: e2e
+  name: admin-frontend-e2e
+spec:
+  replicas: 1
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 2        # how many pods we can add at a time
+      maxUnavailable: 0  # maxUnavailable define how many pods can be unavailable
+  template:
+    metadata:
+      labels:
+        app: admin-frontend-e2e
+      annotations:
+        prometheus.io/scrape: "false"
+    spec:
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+              - matchExpressions:
+                  - key: lifecycle
+                    operator: In
+                    values:
+                      - Ec2Spot
+                  - key: nodeType
+                    operator: DoesNotExist
+      containers:
+        - name: admin-frontend-e2e
+          image: admin-frontend-e2e:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 80
+          resources:
+            limits:
+              memory: "275Mi"
+            requests:
+              cpu: "100m"
+              memory: "50Mi"
+      imagePullSecrets:
+        - name: registrypullsecret
+---
+apiVersion: v1
+kind: Service
+metadata:
+  namespace: e2e
+  name: admin-frontend-e2e
+  labels:
+    name: admin-frontend-e2e
+    app: admin-frontend-e2e
+spec:
+  ports:
+    - name: admin-frontend-80
+      port: 80
+      targetPort: 80
+  selector:
+    app: admin-frontend-e2e
+  type: NodePort
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  namespace: e2e
+  name: admin-frontend-nginx
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+    nginx.ingress.kubernetes.io/rewrite-target: "/"
+spec:
+  rules:
+    - host: admin-frontend-e2e.example.com
+      http:
+        paths:
+          - path: "/"
+            backend:
+              serviceName: "admin-frontend-e2e"
+              servicePort: 80
