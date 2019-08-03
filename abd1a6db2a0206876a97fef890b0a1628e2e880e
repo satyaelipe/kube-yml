@@ -1,0 +1,1 @@
+{"jobID":"6f05a4f1-d342-d413-566a-1c118c8f2e55","spec":{"type":"policy","cause":{"Message":"","User":"Satya Elipe \u003csatya.elipe@gmail.com\u003e"},"spec":{"default:deployment/nginx-deployment":{"add":null,"remove":{"automated":"true"}}}},"result":null}
