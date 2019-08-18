@@ -1,0 +1,14 @@
+apiVersion: extensions/v1beta1
+ kind: Deployment
+ metadata:
+     name: deploy
+     namespace: question-four
+ spec:
+     template:
+         metadata:
+             name: pod
+         spec:
+             replicas: 5
+             containers:
+                 - name: nginx-containers
+                   image: selipe/node:latest
